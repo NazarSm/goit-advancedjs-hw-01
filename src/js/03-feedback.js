@@ -6,10 +6,17 @@ const handleSubmit = (event) => {
   event.preventDefault();
 
   const form = event.target;
-  const email = form.elements.email.value;
-  const message = form.elements.message.value;
 
-  console.log(`Email: ${email}, Message: ${message}`);
+  const user = {
+    email: form.elements.email.value,
+    message: form.elements.message.value,
+  };
+
+  if (user.email === '' || user.message === '') {
+    window.alert('All fields must be filled!');
+  }
+
+  console.log(user);
 
   localStorage.removeItem('feedback-form-state');
   feedbackForm.reset();
@@ -27,7 +34,7 @@ const handleInput = (event) => {
   const form = event.target;
 
   userData.email = feedbackForm.elements.email.value;
-  userData.message = feedbackForm.elements.email.value;
+  userData.message = feedbackForm.elements.message.value;
 
   localStorage.setItem('feedback-form-state', JSON.stringify(userData));
 };

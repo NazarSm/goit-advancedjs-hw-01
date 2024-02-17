@@ -14,16 +14,6 @@ const markup = galleryItems
 
 gallery.insertAdjacentHTML("beforeend", markup);
 
-const handleClickLink = (event) => {
-  event.preventDefault();
-}
-
-const galleryLinks = document.querySelectorAll('.gallery__link');
-
-galleryLinks.forEach(galleryLink => {
-  galleryLink.addEventListener('click', handleClickLink);
-});
-
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionPosition: 'bottom',
